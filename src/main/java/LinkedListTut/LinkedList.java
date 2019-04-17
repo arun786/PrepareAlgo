@@ -21,9 +21,24 @@ public class LinkedList<T extends Comparable<T>> implements List<T> {
         }
     }
 
+    @Override
+    public void delete(T data) {
+
+    }
+
+    @Override
+    public void traverse() {
+
+    }
+
+    @Override
+    public int size() {
+        return 0;
+    }
+
     private void insertDataAtBeginning(T data) {
         Node<T> newNode = new Node<>(data);
         newNode.setNextNode(root);
-        this.root = newNode;
+        root = newNode;
     }
 }
