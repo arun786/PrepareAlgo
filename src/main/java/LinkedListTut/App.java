@@ -18,5 +18,8 @@ public class App {
         System.out.println(numbers);
         numbers.insertAtEnd(12);
         System.out.println(numbers);
+
+        lstString.delete("Pushpa");
+        System.out.println(lstString);
     }
 }

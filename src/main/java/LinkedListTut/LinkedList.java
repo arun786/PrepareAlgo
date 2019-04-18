@@ -71,7 +71,38 @@ public class LinkedList<T extends Comparable<T>> implements List<T> {
 
     @Override
     public void delete(T data) {
+        /**
+         * if root is null return
+         */
+        if (root == null) {
+            return;
+        }
 
+        --sizeOfList;
+        /**
+         * if there is only root node and data is present in the root node
+         */
+
+        if (this.root.getData().compareTo(data) == 0) {
+            this.root = this.root.getNextNode();
+        } else {
+            remove(data, root, root.getNextNode());
+        }
+
+    }
+
+    private void remove(T dataToBeDeleted, Node<T> previousNode, Node<T> actualNode) {
+
+        while (actualNode != null) {
+            if (actualNode.getData().compareTo(dataToBeDeleted) == 0) {
+                assert previousNode != null;
+                previousNode.setNextNode(actualNode.getNextNode());
+                actualNode = null;
+                return;
+            }
+            previousNode = actualNode;
+            actualNode = actualNode.getNextNode();
+        }
     }
 
     @Override
