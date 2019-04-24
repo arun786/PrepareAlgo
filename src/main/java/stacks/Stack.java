@@ -29,4 +29,11 @@ public class Stack<T extends Comparable<T>> {
         }
         return null;
     }
+
+    public T peek() {
+        if (root != null)
+            return root.getData();
+
+        return null;
+    }
 }

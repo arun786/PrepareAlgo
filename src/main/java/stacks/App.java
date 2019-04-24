@@ -8,9 +8,13 @@ public class App {
         stack.push(100);
         stack.push(1000);
 
+        System.out.println(stack.peek());
+
         System.out.println(stack.size());
         System.out.println(stack.pop());
+        System.out.println(stack.peek());
         System.out.println(stack.pop());
         System.out.println(stack.pop());
+        System.out.println(stack.peek());
     }
 }
