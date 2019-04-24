@@ -10,4 +10,8 @@ public interface List<T> {
     void traverse();
 
     int size();
+
+    T middle();
+
+    void reverse();
 }

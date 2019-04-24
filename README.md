@@ -181,3 +181,36 @@
                 actualNode = actualNode.getNextNode();
             }
         }
+ 
+ 
+# Middle
+
+        @Override
+        public T middle() {
+            Node<T> faster = root;
+            Node<T> slower = root;
+        
+            while (faster != null && faster.getNextNode() != null) {
+                faster = faster.getNextNode().getNextNode();
+                slower = slower.getNextNode();
+            }
+            return slower.getData();
+        }
+        
+
+# reverse
+
+     @Override
+        public void reverse() {
+            Node<T> previous = null;
+            Node<T> current = this.root;
+            Node<T> next;
+    
+            while (current != null) {
+                next = current.getNextNode();
+                current.setNextNode(previous);
+                previous = current;
+                current = next;
+            }
+            this.root = previous;
+        }

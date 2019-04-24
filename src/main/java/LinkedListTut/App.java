@@ -11,6 +11,16 @@ public class App {
         lstString.insert("Pushpa");
         System.out.println(lstString);
 
+
+        System.out.println("---reverse----");
+        lstString.reverse();
+        System.out.println(lstString);
+
+
+        System.out.println("-----Get the middle node");
+        String middle = lstString.middle();
+        System.out.println(middle);
+
         System.out.println("---------------");
         System.out.println("Insert at the end");
         List<Integer> numbers = new LinkedList<>();
@@ -19,7 +29,21 @@ public class App {
         numbers.insertAtEnd(12);
         System.out.println(numbers);
 
+
+
         lstString.delete("Pushpa");
+        System.out.println(lstString);
+
+        System.out.println("Traversing");
+        lstString.traverse();
+
+        System.out.println("-----Get the middle node");
+        middle = lstString.middle();
+        System.out.println(middle);
+
+
+        System.out.println("---reverse----");
+        lstString.reverse();
         System.out.println(lstString);
     }
 }

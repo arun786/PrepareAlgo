@@ -95,7 +95,6 @@ public class LinkedList<T extends Comparable<T>> implements List<T> {
 
         while (actualNode != null) {
             if (actualNode.getData().compareTo(dataToBeDeleted) == 0) {
-                assert previousNode != null;
                 previousNode.setNextNode(actualNode.getNextNode());
                 actualNode = null;
                 return;
@@ -108,11 +107,46 @@ public class LinkedList<T extends Comparable<T>> implements List<T> {
     @Override
     public void traverse() {
 
+        Node<T> node = root;
+        while (node != null) {
+            System.out.print(node.getData() + " ");
+            node = node.getNextNode();
+        }
+
+        System.out.println();
+
     }
 
     @Override
     public int size() {
-        return 0;
+        return sizeOfList;
+    }
+
+    @Override
+    public T middle() {
+        Node<T> faster = root;
+        Node<T> slower = root;
+
+        while (faster != null && faster.getNextNode() != null) {
+            faster = faster.getNextNode().getNextNode();
+            slower = slower.getNextNode();
+        }
+        return slower.getData();
+    }
+
+    @Override
+    public void reverse() {
+        Node<T> previous = null;
+        Node<T> current = this.root;
+        Node<T> next;
+
+        while (current != null) {
+            next = current.getNextNode();
+            current.setNextNode(previous);
+            previous = current;
+            current = next;
+        }
+        this.root = previous;
     }
 
 
