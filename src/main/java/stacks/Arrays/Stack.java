@@ -44,6 +44,7 @@ public class Stack<T> {
         if (numberOfItems > 0) {
 
             T itemToPop = this.stack[--numberOfItems];
+            this.stack[numberOfItems] = null; //for garbage collection
 
             if (numberOfItems > 0 && numberOfItems == this.stack.length / 4) {
                 resize(this.stack.length / 2);
