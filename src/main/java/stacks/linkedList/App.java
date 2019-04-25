@@ -1,4 +1,4 @@
-package stacks;
+package stacks.linkedList;
 
 public class App {
     public static void main(String[] args) {

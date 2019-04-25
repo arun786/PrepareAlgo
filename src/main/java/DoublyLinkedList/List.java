@@ -1,4 +1,5 @@
 package DoublyLinkedList;
 
-public interface List {
+public interface List<T> {
+    void add(T data);
 }

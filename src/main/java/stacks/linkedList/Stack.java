@@ -1,4 +1,4 @@
-package stacks;
+package stacks.linkedList;
 
 public class Stack<T extends Comparable<T>> {
 

@@ -1,4 +1,4 @@
-package stacks;
+package stacks.linkedList;
 
 import lombok.Getter;
 import lombok.Setter;
