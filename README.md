@@ -631,3 +631,64 @@
                 inorderTraversalNode(node.getRightChildNode());
             }
         }
+        
+## Delete
+
+        @Override
+        public void delete(T data) {
+            Node<T> tNode = deleteNode(data, root);
+        }
+        
+        private Node<T> deleteNode(T data, Node<T> node) {
+        
+            if (node == null) return null;
+        
+            //data to be deleted is on the left child node
+            if (data.compareTo(node.getData()) < 0) {
+                node.setLeftChildNode(deleteNode(data, node.getLeftChildNode()));
+            } else if (data.compareTo(node.getData()) > 0) {
+                //data to be deleted is on the right child node
+                node.setRightChildNode(deleteNode(data, node.getRightChildNode()));
+            } else {
+                //we got the node to be deleted
+        
+                // there can be four conditions
+        
+                //1. its a leaf node, which means no child node
+                if (node.getLeftChildNode() == null && node.getRightChildNode() == null) {
+                    System.out.println("Deleting the leaf node" + node);
+                    return null;
+                } else if (node.getLeftChildNode() == null) {
+                    //2. one of the child is present, in this case we have the right child
+                    Node<T> tempNode = node.getRightChildNode();
+                    node = null;
+                    return tempNode;
+                } else if (node.getRightChildNode() == null) {
+                    //3. one of the child is present, in this case we have the left child
+                    Node<T> tempNode = node.getLeftChildNode();
+                    node = null;
+                    return tempNode;
+                }
+                //4. both the right node and left node has values
+                //we need to find the predecessor
+                System.out.println();
+                System.out.println("Remove item from node which has got both child node...");
+                Node<T> tempNode = getPredecessor(node.getLeftChildNode());
+                node.setData(tempNode.getData());
+        
+                node.setLeftChildNode(deleteNode(tempNode.getData(), node.getLeftChildNode()));
+        
+            }
+        
+        
+            return node;
+        }
+        
+        private Node<T> getPredecessor(Node<T> node) {
+        
+            if (node.getRightChildNode() != null) {
+                return getPredecessor(node.getRightChildNode());
+            }
+        
+            return node;
+        }

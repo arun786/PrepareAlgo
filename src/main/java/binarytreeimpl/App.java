@@ -5,23 +5,13 @@ public class App {
     public static void main(String[] args) {
         Tree<Integer> bst = new BST<>();
         bst.insertTree(10);
-        System.out.println(bst);
-
         bst.insertTree(5);
-        System.out.println(bst);
-
         bst.insertTree(15);
-        System.out.println(bst);
-
         bst.insertTree(12);
-        System.out.println(bst);
-
         bst.insertTree(19);
-        System.out.println(bst);
-
+        bst.insertTree(13);
+        bst.insertTree(14);
         bst.insertTree(9);
-        System.out.println(bst);
-
         Integer max = bst.getMax();
         System.out.println(max);
 
@@ -29,5 +19,16 @@ public class App {
         System.out.println(min);
 
         bst.traversal();
+        System.out.println();
+
+        bst.delete(9);
+        bst.traversal();
+        System.out.println();
+        bst.delete(12);
+        bst.traversal();
+
+
+
+
     }
 }

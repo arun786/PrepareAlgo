@@ -9,4 +9,6 @@ public interface Tree<T> {
     T getMin();
 
     void traversal();
+
+    void delete(T data);
 }
