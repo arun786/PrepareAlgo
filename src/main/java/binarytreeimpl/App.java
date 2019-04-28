@@ -28,6 +28,26 @@ public class App {
         bst.traversal();
 
 
+        Tree<Integer> bst1 = new BST<>();
+        bst1.insertTree(10);
+        bst1.insertTree(15);
+        bst1.insertTree(12);
+        bst1.insertTree(18);
+        bst1.insertTree(7);
+        bst1.insertTree(5);
+        Tree<Integer> bst2 = new BST<>();
+
+        bst2.insertTree(10);
+        bst2.insertTree(15);
+        bst2.insertTree(12);
+        bst2.insertTree(18);
+        bst2.insertTree(7);
+        bst2.insertTree(5);
+
+        System.out.println();
+        HelperBinary<Integer> helperBinary = new HelperBinary<>();
+        boolean compare = helperBinary.compare(bst1.getRoot(), bst2.getRoot());
+        System.out.println(compare);
 
 
     }

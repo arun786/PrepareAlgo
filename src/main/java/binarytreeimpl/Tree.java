@@ -11,4 +11,6 @@ public interface Tree<T> {
     void traversal();
 
     void delete(T data);
+
+    Node<T> getRoot();
 }

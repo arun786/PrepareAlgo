@@ -107,6 +107,11 @@ public class BST<T extends Comparable<T>> implements Tree<T> {
         Node<T> tNode = deleteNode(data, root);
     }
 
+    @Override
+    public Node<T> getRoot() {
+        return this.root;
+    }
+
     private Node<T> deleteNode(T data, Node<T> node) {
 
         if (node == null) return null;
