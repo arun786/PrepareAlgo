@@ -112,6 +112,27 @@ public class BST<T extends Comparable<T>> implements Tree<T> {
         return this.root;
     }
 
+    @Override
+    public Node<T> getKthSmallest(Node<T> node, int k) {
+
+        int n = getTreeSize(node.getLeftChildNode()) + 1;
+
+        if (n == k) return node;
+
+        if (n > k) return getKthSmallest(node.getLeftChildNode(), k);
+        return getKthSmallest(node.getRightChildNode(), k - n);
+    }
+
+    private int getTreeSize(Node<T> node) {
+        if (node == null) return 0;
+
+        int leftTreeSize = getTreeSize(node.getLeftChildNode());
+        int rightTreeSize = getTreeSize(node.getRightChildNode());
+
+        return leftTreeSize + rightTreeSize + 1;
+
+    }
+
     private Node<T> deleteNode(T data, Node<T> node) {
 
         if (node == null) return null;
@@ -166,5 +187,30 @@ public class BST<T extends Comparable<T>> implements Tree<T> {
         return node;
     }
 
+    @Override
+    public int getAgeSum() {
+        return getAgeSum(root);
+    }
 
+    private int getAgeSum(Node<T> node) {
+        System.out.println("Considering Node : " + node);
+
+        int sum = 0;
+        int leftSum = 0;
+        int rightSum = 0;
+
+
+        if (node == null) {
+            return 0;
+        }
+
+        leftSum = getAgeSum(node.getLeftChildNode());
+        rightSum = getAgeSum(node.getRightChildNode());
+
+        String format = String.format("Adding the sum for Node %s, leftsum %d, rightSum %d", node, leftSum, rightSum);
+        System.out.println(format);
+        sum = ((Person) node.getData()).getAge() + leftSum + rightSum;
+
+        return sum;
+    }
 }

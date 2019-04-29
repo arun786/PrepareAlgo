@@ -708,3 +708,26 @@
             return compare(node1.getLeftChildNode(), node2.getLeftChildNode()) && compare(node1.getRightChildNode(), node2.getRightChildNode());
         }
     }
+
+## Kth element of a Binary tree
+
+    @Override
+    public Node<T> getKthSmallest(Node<T> node, int k) {
+    
+        int n = getTreeSize(node.getLeftChildNode()) + 1;
+    
+        if (n == k) return node;
+    
+        if (n > k) return getKthSmallest(node.getLeftChildNode(), k);
+        return getKthSmallest(node.getRightChildNode(), k - n);
+    }
+    
+    private int getTreeSize(Node<T> node) {
+        if (node == null) return 0;
+    
+        int leftTreeSize = getTreeSize(node.getLeftChildNode());
+        int rightTreeSize = getTreeSize(node.getRightChildNode());
+    
+        return leftTreeSize + rightTreeSize + 1;
+    
+    }

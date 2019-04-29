@@ -13,4 +13,9 @@ public interface Tree<T> {
     void delete(T data);
 
     Node<T> getRoot();
+
+    Node<T> getKthSmallest(Node<T> node, int k);
+
+    int getAgeSum();
+
 }

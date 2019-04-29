@@ -194,4 +194,13 @@ class BST<T extends Comparable<T>> implements Tree<T> {
             inOrderTraversalNode(node.getRightChildNode());
         }
     }
+
+    private int treeSize(Node<T> node) {
+
+        if (node == null) {
+            return 0;
+        }
+
+        return treeSize(node.getLeftChildNode()) + treeSize(node.getRightChildNode()) + 1;
+    }
 }
