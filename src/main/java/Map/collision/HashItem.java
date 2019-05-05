@@ -1,4 +1,4 @@
-package Map;
+package Map.collision;
 
 import lombok.Getter;
 import lombok.Setter;

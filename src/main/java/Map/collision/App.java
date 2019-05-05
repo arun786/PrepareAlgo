@@ -1,4 +1,5 @@
-package Map;
+package Map.collision;
+
 
 public class App {
 
@@ -9,9 +10,7 @@ public class App {
         hashTable.put(3, 15);
 
         System.out.println(hashTable);
-
         int i = hashTable.get(3);
         System.out.println(i);
-
     }
 }
