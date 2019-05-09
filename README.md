@@ -1023,3 +1023,54 @@
     }
     
     
+## Selection Sort
+
+    The first item is checked with all the items in a list and then swapped if we encounter a smaller number at the end of the first iteration.
+    we then compare the second item with the items after the index and swap, it has order n^2 complexity.
+    Its better than bubble sort where we have more write operations, in selection sort, the number of write operations are less than selection sort.
+    
+    
+    package sorting;
+    
+    public class SelectionSort {
+    
+        public static void main(String[] args) {
+    
+            int numbers[] = {7, 3, 8, 4, 9, 1};
+            display(numbers);
+            selectionSort(numbers);
+            display(numbers);
+        }
+    
+    
+        public static void selectionSort(int[] numbers) {
+            for (int i = 0; i < numbers.length; i++) {
+                int index = i;
+                for (int j = i; j < numbers.length; j++) {
+                    if (numbers[i] > numbers[j]) {
+                        index = j;
+                    }
+                }
+    
+                if (i != index) {
+                    swap(numbers, i, index);
+                }
+            }
+        }
+    
+        public static void display(int numbers[]) {
+            for (int i = 0; i < numbers.length; i++) {
+                System.out.print(numbers[i] + " ");
+            }
+    
+            System.out.println();
+        }
+    
+        private static void swap(int[] numbers, int i, int index) {
+            int temp = numbers[i];
+            numbers[i] = numbers[index];
+            numbers[index] = temp;
+        }
+    
+    
+    }
