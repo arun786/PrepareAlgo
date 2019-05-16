@@ -4,40 +4,33 @@ public class SelectionSort {
 
     public static void main(String[] args) {
 
-        int numbers[] = {7, 3, 8, 4, 9, 1};
-        display(numbers);
-        selectionSort(numbers);
-        display(numbers);
+        int num[] = {1, 3, -2, 6, -5, 6, 9, 0};
+        Util.display(num);
+        selectionSort(num);
+        Util.display(num);
+
+
     }
 
+    public static void selectionSort(int[] nums) {
 
-    public static void selectionSort(int[] numbers) {
-        for (int i = 0; i < numbers.length; i++) {
+        for (int i = 0; i < nums.length; i++) {
             int index = i;
-            for (int j = i; j < numbers.length; j++) {
-                if (numbers[i] > numbers[j]) {
+
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[index] > nums[j]) {
                     index = j;
                 }
             }
 
-            if (i != index) {
-                swap(numbers, i, index);
+            if (index != i) {
+                Util.swap(nums, index, i);
             }
-        }
-    }
 
-    public static void display(int numbers[]) {
-        for (int i = 0; i < numbers.length; i++) {
-            System.out.print(numbers[i] + " ");
+            Util.display(nums);
         }
 
-        System.out.println();
-    }
 
-    private static void swap(int[] numbers, int i, int index) {
-        int temp = numbers[i];
-        numbers[i] = numbers[index];
-        numbers[index] = temp;
     }
 
 

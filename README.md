@@ -1036,41 +1036,95 @@
     
         public static void main(String[] args) {
     
-            int numbers[] = {7, 3, 8, 4, 9, 1};
-            display(numbers);
-            selectionSort(numbers);
-            display(numbers);
+            int num[] = {1, 3, -2, 6, -5, 6, 9, 0};
+            display(num);
+            selectionSort(num);
+            display(num);
+    
+    
         }
     
+        public static void selectionSort(int[] nums) {
     
-        public static void selectionSort(int[] numbers) {
-            for (int i = 0; i < numbers.length; i++) {
+            for (int i = 0; i < nums.length; i++) {
                 int index = i;
-                for (int j = i; j < numbers.length; j++) {
-                    if (numbers[i] > numbers[j]) {
+    
+                for (int j = i + 1; j < nums.length; j++) {
+                    if (nums[index] > nums[j]) {
                         index = j;
                     }
                 }
     
-                if (i != index) {
-                    swap(numbers, i, index);
+                if (index != i) {
+                    swap(nums, index, i);
                 }
+    
+                display(nums);
             }
+    
+    
         }
     
-        public static void display(int numbers[]) {
-            for (int i = 0; i < numbers.length; i++) {
-                System.out.print(numbers[i] + " ");
-            }
+        private static void swap(int[] nums, int index, int i) {
+            int temp = nums[i];
+            nums[i] = nums[index];
+            nums[index] = temp;
+        }
     
+        private static void display(int[] num) {
+            for (int i = 0; i < num.length; i++) {
+                System.out.print(num[i] + " ");
+            }
             System.out.println();
         }
+    }
+
+
+# Insertion Sort
+
+    It builds the final sorted array one at a time. It has quadratic running time as O(N^2).
+    It is very inefficient for large dataset but good for arrays with 10-20 items.
+    It is more efficient than other quadratic running time algo such as Bubble sort and Selection Sort.
+    Its a stable sort, preserves the order of the items with equal keys.
+    Its an Adaptive algorithm, speeds up when the arrays is already substantially sorted.
+    Its an In place algorithm which doesnot require additional memory.
+    Insertion sort requires more memory compared to Selection sort.
+    Insertion sort will write O(N^2) whereas Selection sort will require O(N) times.
     
-        private static void swap(int[] numbers, int i, int index) {
-            int temp = numbers[i];
-            numbers[i] = numbers[index];
-            numbers[index] = temp;
+    
+    package sorting;
+    
+    public class InsertionSort {
+    
+        public static void main(String[] args) {
+            int num[] = {1, 3, -2, 6, -5, 6, 9, 0};
+            Util.display(num);
+            insertionSort(num);
         }
     
     
+        static void insertionSort(int[] nums) {
+            for (int i = 0; i < nums.length; i++) {
+                int j = i;
+                while (j > 0 && nums[j] < nums[j - 1]) {
+                    Util.swap(nums, j, j - 1);
+                    j--;
+                }
+                System.out.print("After " + i + " iteration ");
+                Util.display(nums);
+            }
+        }
     }
+
+
+Result 
+
+    1 3 -2 6 -5 6 9 0 
+    After 0 iteration 1 3 -2 6 -5 6 9 0 
+    After 1 iteration 1 3 -2 6 -5 6 9 0 
+    After 2 iteration -2 1 3 6 -5 6 9 0 
+    After 3 iteration -2 1 3 6 -5 6 9 0 
+    After 4 iteration -5 -2 1 3 6 6 9 0 
+    After 5 iteration -5 -2 1 3 6 6 9 0 
+    After 6 iteration -5 -2 1 3 6 6 9 0 
+    After 7 iteration -5 -2 0 1 3 6 6 9
