@@ -1091,6 +1091,16 @@
     Insertion sort requires more memory compared to Selection sort.
     Insertion sort will write O(N^2) whereas Selection sort will require O(N) times.
     
+    Modus Operandi
+    
+    there are 2 iterators basically
+    
+    first iterates in the forward direction and the second iteration is in reverse direction.
+    
+    Each element is checked with the previous element, and then swapped.
+    
+    
+    
     
     package sorting;
     
